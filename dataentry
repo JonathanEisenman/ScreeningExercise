@@ -1,0 +1,34 @@
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+# Define a list to store the entries
+entries = []
+
+# Define a route for the form page
+@app.route('/')
+def form():
+    return render_template('form.html')
+
+# Define a route for the confirmation page
+@app.route('/confirm', methods=['POST'])
+def confirm():
+    # Get the form data
+    name = request.form['name']
+    age = request.form['age']
+    title = request.form['title']
+    hometown = request.form['hometown']
+
+    # Check if required fields are entered
+    if not name or not title:
+        error = 'Name and Title are required fields'
+        return render_template('form.html', error=error)
+
+    # Add the entry to the list
+    entries.append({'name': name, 'age': age, 'title': title, 'hometown': hometown})
+
+    # Render the confirmation page with the entry list
+    return render_template('confirm.html', entry=entries[-1], entries=entries)
+
+if __name__ == '__main__':
+    app.run(debug=True)
