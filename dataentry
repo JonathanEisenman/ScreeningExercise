@@ -21,8 +21,8 @@ def confirm():
 
     # Check if required fields are entered
     if not name or not title:
-        error = 'Name and Title are required fields'
-        return render_template('form.html', error=error)
+        error = 'Please fill in all required fields'
+        return render_template('form.html', error=error, name=name, age=age, title=title, hometown=hometown)
 
     # Add the entry to the list
     entries.append({'name': name, 'age': age, 'title': title, 'hometown': hometown})
