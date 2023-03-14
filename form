@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Data Entry Form</title>
+  </head>
+  <body>
+    <h1>Data Entry Form</h1>
+    {% if error %}
+      <p style="color: red">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('confirm') }}">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{ name }}" required><br><br>
+      <label for="age">Age:</label>
+      <input type="text" id="age" name="age" value="{{ age }}"><br><br>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="title" value="{{ title }}" required><br><br>
+      <label for="hometown">Hometown:</label>
+      <input type="text" id="hometown" name="hometown" value="{{ hometown }}"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>
