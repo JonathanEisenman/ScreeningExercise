@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Confirmation Page</title>
+  </head>
+  <body>
+    <h1>Confirmation Page</h1>
+    <p>Thank you for your submission!</p>
+    <p>Name: {{ entry['name'] }}</p>
+    <p>Age: {{ entry['age'] }}</p>
+    <p>Title: {{ entry['title'] }}</p>
+    <p>Hometown: {{ entry['hometown'] }}</p>
+    {% if entries %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Title</th>
+            <th>Hometown</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entry in entries %}
+            <tr>
+              <td>{{ entry['
